@@ -25,25 +25,34 @@ class BookingSpider(scrapy.Spider):
         city = re.sub("\s+|\'|\?|\:","",str(city_and_nb_hostels[0])).lower()
         nb_hostels = int(city_and_nb_hostels[1])
 
+        print(city)
+
         if city!=list_city[iter].lower():
             print("WARNING ! Perhaps {} is not the same city than {}...".format(city,list_city[iter]))
+
+        list_hostels=response.xpath('//*[@id="search_results_table"]/div[2]/div/div/div/div[3]/div[*]/div[1]/div[2]/div/div[1]/div[1]/div/div[1]/div/h3/a/div[1]/text()').getall()
+        list_hostels_urls=response.xpath('//*[@id="search_results_table"]/div[2]/div/div/div/div[3]/div[*]/div[1]/div[2]/div/div[1]/div[1]/div/div[1]/div/h3/a/@href').getall()
+ 
+        print(list_hostels)
+        print(len(list_hostels))
+
+        print(list_hostels_urls)
+        print(len(list_hostels_urls))
         
-        for h in range (20):
-            good_div = '//div[@class="d4924c9e74"]/div[{}]'.format(2*h+3)
-            hostel_name = response.xpath(good_div + '/div/div[2]/div/div/div/div/div/div/h3/a/div/text()').get()
-            
+        for i, link in enumerate(list_hostels_urls):
+
             try:
-                hostel_url = response.xpath(good_div + '/div/div[2]/div/div/div/div/div/div/h3/a').attrib["href"]
-                yield response.follow(hostel_url,
+                yield response.follow(link,
                                     callback=self.in_hostel_page,
                                     meta={'city':city,
-                                        'hostel_name':hostel_name})
+                                        'hostel_name':list_hostels[i],
+                                        'hostel_url':link})
             except:
                 yield {
                 'city':city,
-                'hostel_name':hostel_name,
-                'hostel_type':np.nan
-            }
+                'hostel_name':list_hostels[i],
+                'hostel_url':link,
+                'hostel_type':np.nan}
 
         iter+=1
         if iter<=len(list_city)-1:
@@ -56,6 +65,10 @@ class BookingSpider(scrapy.Spider):
             )
 
     def in_hostel_page(self,response):
+
+        hostel_name=response.request.meta['hostel_name']
+        hostel_url=response.request.meta['hostel_url']
+
         type=response.xpath('//span[@class=\'e2f34d59b1\']/text()').get()
 
         city=response.request.meta['city']
@@ -64,5 +77,6 @@ class BookingSpider(scrapy.Spider):
         yield {
                 'city':city,
                 'hostel_name':hostel_name,
+                'hostel_url':hostel_url,
                 'hostel_type':type
             }
