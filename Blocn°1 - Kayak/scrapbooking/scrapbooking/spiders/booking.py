@@ -3,7 +3,7 @@ import pandas as pd
 
 
 # - IMPORTATION DE LA LISTE DES VILLES -
-list_src = pd.read_csv('./../src/top35_list_cities.txt').reset_index()
+list_src = pd.read_csv('./../../../src/top35_list_cities.txt').reset_index()
 
 list_cities = list_src['Cities'].to_list()
 
