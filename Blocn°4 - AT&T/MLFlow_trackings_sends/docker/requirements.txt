@@ -1,0 +1,12 @@
+tensorflow-text
+tensorflow-hub
+boto3
+pandas
+numpy
+regex
+datetime
+gunicorn 
+sklearn  
+mlflow
+psycopg2-binary
+spacy
