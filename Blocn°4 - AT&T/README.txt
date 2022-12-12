@@ -15,7 +15,7 @@ Pour faire tourner le notebook dans un environnement Jupyter Lab avec Tensorflow
 
 -> démarrer Docker...
 
--> depuis ce répertoire racine, dans un terminal, faire un : ``` docker-compose up ```
+-> depuis ce répertoire racine, dans un terminal, faire un : ''' docker-compose up '''
 
 -> copy-paste le lien donné (token inclus) commençant par " http://127.0.0.1:8888/ ... "
 
