@@ -10,6 +10,8 @@ https://share.vidya
 -------------------
 ABOUT THE GLOBAL COLLABORATIVE PROJECT
 
+![image](./illustr/presentation.jpg)
+
 Presentation :
 
 An analysis of the state of protective forests in Switzerland : main factors of growth and health and first modelling approaches to predict the future of these forests...
@@ -69,7 +71,7 @@ Models tested : Ridge Regressor, Ridge Classifier, XGBoost, Multi-Layers Dense, 
 
 
 -------------------
-ABOUT MY PERSONNAL CONTRIBUTION AND THIS REPOSITORY
+ABOUT MY PERSONAL CONTRIBUTION AND THIS GIT REPOSITORY
 
 
 
