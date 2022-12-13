@@ -21,13 +21,13 @@ https://www.youtube.com/watch?v=Hbn9JkuRaWk&t=9036s
 
 Team Main contribution:
 
-    - Dashboarding: Marjory Lamothe
-    - Satellite data gathering and aggregation: myself
-    - Climatic data analysis: Arnaud Barraquand (Git repo : https://github.com/Ukratic/Protection-Forests)
-    - Scientific expertise: Estelle Noyer (Git repo : https://github.com/NoyE-R/JF_B6_ProtectiveForest/blob/main/README.md)
-    - Modeling: all members.
+- Dashboarding: Marjory Lamothe
+- Satellite data gathering and aggregation: myself
+- Climatic data analysis: Arnaud Barraquand (Git repo : https://github.com/Ukratic/Protection-Forests)
+- Scientific expertise: Estelle Noyer (Git repo : https://github.com/NoyE-R/JF_B6_ProtectiveForest/blob/main/README.md)
+- Modeling: all members.
 
-    Ici ce qui suit [Lien](https://example.com/ "titre de lien optionnel")
+Ici ce qui suit [Lien](https://example.com/ "titre de lien optionnel")
 
 
 
