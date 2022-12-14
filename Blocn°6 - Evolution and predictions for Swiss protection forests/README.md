@@ -26,13 +26,12 @@ https://www.youtube.com/watch?v=Hbn9JkuRaWk&t=9036s
 Team Main contribution :
 
 - Dashboarding: Marjory Lamothe
-- Satellite data gathering and aggregation: myself
+- Satellite data gathering and aggregation: myself ([Git repo](https://github.com/MarjoryLamothe))
 - Climatic data analysis: Arnaud Barraquand ([Git repo](https://github.com/Ukratic/Protection-Forests))
 - Scientific expertise: Estelle Noyer ([Git repo](https://github.com/NoyE-R/JF_B6_ProtectiveForest/blob/main/README.md))
 - Modeling: all members.
 
 Context and final objective :
-
 (author : Arnaud Barraquand)
 
 Temperatures are rising considerably faster in Swiss forests than Switzerland at large, which already has temperatures rising faster than the global trend.
@@ -45,7 +44,6 @@ This is the purpose of this study : An overview of the current situation and an 
 
 
 Dataset :
-
 (author : Estelle Noyer)
 
 The used dataset includes three kind of data:
@@ -61,7 +59,6 @@ Dashboard with EDA and modeling analysis of the forest, and a presentation of ou
 Availaible on [this link](https://ukratic-protection-forests-dashboard-home-fsgk56.streamlit.app/)
 
 Analytical approach :
-
 (author : Estelle Noyer)
 
 Three targets were selected in order to get different point of view defining the health of forests:
@@ -102,26 +99,30 @@ On the other hand, interesting leads were found during this modeling, which woul
 ABOUT MY PERSONAL CONTRIBUTION AND THIS GIT REPOSITORY
 -------------------
 
-4 Folders to explain step by step  my contribution on this project
+4 Folders to explain step by step my contribution on this project...
 
-With my collaborators, I was involved in the data exploration and the collective reflexion about data acquisition and data managment. I have provided, throughout the entire project, a lot of scripts to manage, to merge, to aggregate and to convert data... For example,  a script to convert swiss spatial coordinates (a very particular system !) into GPS coordinates. -> REPO 1 : DATA_global_processing
+FOLDER 1 -> [DATA_global_processing](1_DATA_global_processing)
+With my collaborators, I was involved in the data exploration and the collective reflexion about data acquisition and data managment. I have provided, throughout the entire project, a lot of scripts to manage, to merge, to aggregate and to convert data... For example,  a script to convert swiss spatial coordinates (a very particular system !) into GPS coordinates. 
 
-Then, my personnal task was to manage and to organize the satellite data collection. I tried to learn basical commands on the librairie of Google Earth Engine, to explore some code examples, to make researchs and read some documentations on spectral bands and spectral functions specialized on vegetation monitoring, to make little test of images capture... Then, objective was to automate the processus and paralellize the 4 collection captures (1 by campaign of LFI data) with our 4 local machines (approx. 10GB and 10-12hrs of computing time by collection). So, I decided to create a litle jupyter lab environnement (with a Docker image) to share this automation process. After that, I maked a final script for all my collaborators to convert images colection (in json format, with a list numpy array for image for each spectral function) to a single one aggregated data (the mean of each pixels of the image, cut out a 25X25 meters square)
--> REPO 2 : DATA_satellites_images_acquisition_and_aggregation
+FOLDER 2 -> [DATA_satellites_images_acquisition_and_aggregation](2_DATA_satellites_images_acquisition_and_aggregation)
+Then, my personnal task was to manage and to organize the satellite data collection. I used Google Earth Engine API. Final bjective was to automate the processus and paralellize the 4 collection captures (1 by campaign of LFI data) with our 4 local machines (approx. 10GB and 10-12hrs of computing time by collection). So, I decided to create a litle jupyter lab environnement (with a Docker image) to share this automation process. After that, I maked a final script for all my collaborators to convert each image of the big colection to a single one aggregated value.
 
 When we merged all the data (Météo / Satellite / field data), then, we were able to train and test different models in Supervised Machine Learning (including Deep Learning) to satisfy our different objectives, on a "descriptive" mode and on a "predictive" mode (as it is described above)...
 
-Personnaly, for the "descriptive" mode, I tried to build very simple models like Simple Classifier (from scikit-learn), Ridge, Lasso... because my interest was esssentialy to understand the importance of each feature in the predictions (feature extraction) and not to increase performances -> REP0 3 : Machine_Learning_Descriptive_models
+FOLDER 3 -> [Machine_Learning_Descriptive_models](3_Machine_Learning_Descriptive_models)
+Personnaly, for the "descriptive" mode, I tried to build very simple models like Simple Classifier (from scikit-learn), Ridge, Lasso... because my interest was esssentialy to understand the importance of each feature in the predictions (feature extraction) and not to increase performances
 
+FOLDER 4 -> [Machine_Learning_Predictive_models](4_Machine_Learning_Predictive_models)
 For the "predictive" mode, first, I built some scripts to preprocess the data in a temporal problematic (for two differents approches, as it is described above)... Then, I built differents models, from the more simple to the more complex. My favorite models were the lastest : A GRU Multi-layers in deep learning, cause I was armed with the conviction that RNN is a good answer for a "time series problem", especially when we have a small amount of temporal points (but a lot of data for each point), and the same, but with a parellelize pipeline to incorpore the present's informations (and satellite data). Even if all the performance were not very extraordinary, theses models were the best (in predictive capacity) at this step of the project, for the "predictive" mode. Ways that should be explored further...
--> REPO 4 : Machine_Learning_Predictive_models
 
+---
 Another of my contributions was, in the context of our collective reflection, to put in discussions theses differents approches around the elaboration of our models, with a great specially interest in the modelization and the relationship of it with time. (to see the draft diagram about theses different approches, don't be afraid, it's a draft...).
-Time is a fascinating subject and I think that the field of Machine Learning has not finished delivering all these mysteries on the relationship with it... In some cases, time must be ignored, and in others it must be completely reintegrated. It is these choices and questions that fascinate me most in modeling problems. (in addition to the forests!...)
+Time is a fascinating subject and I think that the field of Machine Learning has not finished delivering all these mysteries on the relationship with it... In some cases, time must be ignored, and in others it must be completely reintegrated. It is these choices and questions that fascinate me most in modeling problems.
 
 -------------------
 OTHER CREDITS
 -------------------
 
-
-
+All script "SAT_images_to_array_automation_..." contain a sample code from :
+https://mygeoblog.com/2019/08/21/google-earth-engine-to-numpy/
+(author : thisearthsite - anonymous)
