@@ -25,7 +25,7 @@ Steps to launch the jupyter lab interface with the right dependencies:
 
 - Go to the link specified in the terminal : http://127.0.0.1:8888/ ...
 
-- The volume of my_notebooks in the Jupyter Lab should be synchronized with the working directory,
+- The volume of "my_notebooks" in the Jupyter Lab should be synchronized with the working directory,
 for running scripts, storing files...
 
 ----
@@ -38,7 +38,7 @@ To execute the notebook, you must identify yourself to your Google'account :
 
 - Retrieve the token by following the instructions and clicking on accept
 
-- Copy the token in the output of the cell
+- Copy the token and paste it into the output of the cell
 
 
 ##### OPTION 2 / Use the script .py

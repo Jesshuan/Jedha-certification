@@ -122,6 +122,6 @@ Time is a fascinating subject and I think that the field of Machine Learning has
 OTHER CREDITS
 -------------------
 
-All script "SAT_images_to_array_automation_..." contain a sample code from :
+All scripts "SAT_images_to_array_automation_..." contain a sample code from :
 https://mygeoblog.com/2019/08/21/google-earth-engine-to-numpy/
 (author : thisearthsite - anonymous)

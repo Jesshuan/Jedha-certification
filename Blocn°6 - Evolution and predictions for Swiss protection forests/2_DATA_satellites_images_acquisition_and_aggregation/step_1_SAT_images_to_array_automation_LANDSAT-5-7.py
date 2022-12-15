@@ -1,3 +1,6 @@
+# --- PYTHON SCRIPT VERSION OF THE SAME SCRIPT AS A NOTEBOOK ---
+
+
 import ee
 import numpy as np
 import matplotlib.pyplot as plt
