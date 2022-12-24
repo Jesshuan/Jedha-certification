@@ -21,7 +21,7 @@ An analysis of the state of protective forests in Switzerland : main factors of 
 https://www.youtube.com/watch?v=Hbn9JkuRaWk&t=9036s
 (our presentation start at 1h 22m 40s)
 
--> The presentation with slides is also added in this repository : [link](Protective Forest CH.pptx)
+-> The presentation with slides is also added in this repository : ![Protective Forest slides presentation](./Protective%20Forests%20CH.pptx)
 
 Team Main contribution :
 
