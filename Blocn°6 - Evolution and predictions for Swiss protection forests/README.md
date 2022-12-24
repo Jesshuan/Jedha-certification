@@ -5,7 +5,7 @@ Name : DINE Aloïs Jesshuan
 e-mail : jesshuan.dine@gmail.com
 
 Lien vidéo de la présentation :
-https://share.vidya
+https://share.vidyard.com/watch/7fdNDXdDe2aj6yZbJTbH7b?
 
 -------------------
 ABOUT THE GLOBAL COLLABORATIVE PROJECT
