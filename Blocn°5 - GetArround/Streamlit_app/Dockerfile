@@ -7,7 +7,7 @@ RUN apt-get install nano unzip
 RUN apt install curl -y
 
 RUN curl -fsSL https://get.deta.dev/cli.sh | sh
-RUN pip install pandas numpy streamlit plotly openpyxl
+RUN pip install pandas numpy streamlit plotly openpyxl boto boto3
 COPY . /home/app
 
 CMD streamlit run --server.port $PORT app.py

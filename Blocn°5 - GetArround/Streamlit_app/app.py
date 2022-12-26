@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import copy
+import boto3
+import os
+
 
 ### Config
 st.set_page_config(
@@ -11,16 +14,36 @@ st.set_page_config(
     layout="wide"
 )
 
-DATA_PATH = ('./src/get_around_delay_analysis.xlsx')
+# DATA_PATH = ('./src/get_around_delay_analysis.xlsx') # for a local loading
 
 ### App
 st.title("Get Around new feature study :")
 st.title("Management of check-out delays")
 
 ### usual functions
+
 @st.cache
+# IMPORT DATA (CONNECTION WITH S3 BUCKET)
 def import_data():
-    data = pd.read_excel(DATA_PATH)
+
+    s3_client = boto3.client(
+        "s3",
+        aws_access_key_id=os.getenv("S3_KEY"),
+        aws_secret_access_key=os.getenv("S3_SECRET")
+    )
+
+    response = s3_client.get_object(Bucket='get-around-app', Key="get_around_delay_analysis.csv")
+
+    status = response.get("ResponseMetadata", {}).get("HTTPStatusCode")
+
+    if status == 200:
+        data = pd.read_csv(response.get("Body"))
+
+    else:
+        return f"Connection Error with S3... - Status code : {status}"
+
+
+    #data = pd.read_excel(DATA_PATH)
     data = data.rename(columns={"checkin_type":"type",
                         "delay_at_checkout_in_minutes":"delay",
                         "previous_ended_rental_id":"prev_id",
@@ -126,7 +149,7 @@ with col1:
 with col2:
     st.markdown(""" Rentals with mobile check-in """)
     st.metric("Number of cases : ", len(data_mobile))
-    fig2 = px.pie(data_enable,names='late_or_early')
+    fig2 = px.pie(data_mobile,names='late_or_early')
     fig2.update_traces(sort=False) 
     st.plotly_chart(fig2, use_container_width=True)
     
