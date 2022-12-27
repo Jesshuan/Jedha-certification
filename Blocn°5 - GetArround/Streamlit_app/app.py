@@ -17,8 +17,7 @@ st.set_page_config(
 # DATA_PATH = ('./src/get_around_delay_analysis.xlsx') # for a local loading
 
 ### App
-st.title("Get Around new feature study :")
-st.title("Management of check-out delays")
+st.title("Get Around's new feature study ")
 
 ### usual functions
 
@@ -105,6 +104,9 @@ with col3:
     st.plotly_chart(fig3, use_container_width=True)
     st.metric("Number of cases : ", len(data.loc[data['state']=='canceled',:]))
 
+st.markdown(""" COMMENT : Repartition of the check-in type seems to be
+        very similar between the ended and canceled rentals""")
+
 st.markdown("""
     ------------------------
 """)
@@ -122,8 +124,10 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 st.markdown("""
-    This display was made without outliers
+    This display was made without outliers, for a best view...
 """)
+
+st.markdown(""" COMMENT : Distribution of the user's delay is very symmetrical and tight""")
 
 st.subheader("Users's delay by check-in type")
 
@@ -161,6 +165,9 @@ with col3:
     fig3.update_traces(sort=False) 
     st.plotly_chart(fig3, use_container_width=True)
     
+st.markdown(""" COMMENT : We can observe an increase of the user's delay for check-out
+if the ckeck-in type is the mobile type. This type seems to be a little more problematic than the other.""")
+
 
 st.subheader("Problematics cases")
 
@@ -179,9 +186,6 @@ data_join['problematic'] = data_join['problematic'].apply(lambda v : 'problemati
 
 data_join_m = data_join.loc[data_join['type_x']=='mobile',:]
 data_join_c = data_join.loc[data_join['type_x']=='connect',:]
-
-fig = px.pie(data_join, names='problematic')
-fig.show()
 
 
 col1, col2, col3 = st.columns(3)
@@ -208,10 +212,9 @@ with col3:
     fig3.update_traces(sort=False) 
     st.plotly_chart(fig3, use_container_width=True)
 
+st.markdown(""" COMMENT : When we observe the problematic cases, we find again the same proportion.
+Mobile check-in type seems to be a little more problematic than connect check-in type.""")
 
-
-fig = px.histogram(data_join, x='time_delta', nbins=100, color='problematic')
-fig.show()
 
 st.subheader("Problematic cases by threshold's choice value")
 
@@ -221,7 +224,9 @@ st.markdown("""
     the choice of the threshold will directly impact which available locations will be displayed
     on the Get Arround application, depending on their delta time value.
     
-    What is the number or proportion of problematcis cases solved by a threshold choice?
+    What is the number or proportion of problematic cases solved by a threshold choice?
+
+    Note : We make this study just for the rentals with a PRESENT delta time value ... (delta_time <= 12 hours)
     """)
 
 data_disp = copy.copy(data_join)
@@ -235,6 +240,9 @@ elif choice == 'mobile type':
 
 fig = px.histogram(data_disp, x='time_delta', nbins=100, color='problematic')
 st.plotly_chart(fig, use_container_width=True)
+
+st.markdown(""" COMMENT : For mobile check-in type, a threshold choice of 120 minutes could solve a very good proportion of the problematic cases.
+For connect check-in type, perhaps we could take a smaller threshold : 60 or 90 minutes should be enough.""")
 
 st.markdown("""
     ------------------------
@@ -259,5 +267,10 @@ set = st.selectbox("Select the global set or a subset by type of chek-in", ['glo
 fig = px.bar(df_miss, x='threshold choice - (delta time value)', y=set, barmode='group')
 fig.update_yaxes(title='Affected rentals (%) of the effective and efficient rentals')
 st.plotly_chart(fig, use_container_width=True)
+
+
+st.markdown(""" COMMENT : If we apply the new feature with threshold around 60 / 90 / 120 minutes,
+less than 2 percent of the effective rentals will be impacted.""")
+
 
 
