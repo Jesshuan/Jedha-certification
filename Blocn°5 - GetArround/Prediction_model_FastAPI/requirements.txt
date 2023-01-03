@@ -1,0 +1,14 @@
+fastapi 
+uvicorn[standard]
+pydantic 
+cloudpickle
+scikit-learn
+xgboost
+typing 
+pandas 
+gunicorn 
+openpyxl 
+mlflow 
+python-multipart
+fsspec
+s3fs
