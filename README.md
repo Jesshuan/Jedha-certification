@@ -17,4 +17,5 @@ These are all my student's projects while I'm learning Data Science at Jedha Cam
 - Project n°4 : AT&T - Differents models in NLP DeepLearning (self-maded and imported) for SPAM SMS Classification
 
 - Project n°5 : Get arround - Data Engineering project for a pick-up car company. Dashboard for some analysis, Mlflow packaging for prediction models, and API production for mzchine learning usage.
-    
+
+- Project n°6 : Predictions and monitoring for swiss protective forest - A colaborative profesional "end of course" project, in partnership with IFN institute.
