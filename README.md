@@ -15,4 +15,6 @@ These are all my student's projects while I'm learning Data Science at Jedha Cam
     - Uber Pickups - Clustering methods with DBSCAN and KMEANS on Uber dataset, to display density's zones for Uber users in New York
 
 - Project n°4 : AT&T - Differents models in NLP DeepLearning (self-maded and imported) for SPAM SMS Classification
+
+- Project n°5 : Get arround - Data Engineering project for a pick-up car company. Dashboard for some analysis, Mlflow packaging for prediction models, and API production for mzchine learning usage.
     
